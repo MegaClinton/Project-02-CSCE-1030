@@ -6,6 +6,9 @@
 #define PROJECT_02_CSCE_1030_MAIN_H
 
 #include <iostream>
+#include <sstream>
+#include <stdlib.h>
+
 using namespace std;
 
 

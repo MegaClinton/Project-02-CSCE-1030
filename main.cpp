@@ -13,9 +13,20 @@ bool IsWrongFormat(string email)
 
 }
 
-void intialize(int num = -1)
+void intialize(int arr[][COLUMNS], int rows, int columns, int num = -1)
 {
+    srand((time(NULL)));
+    if(num != -1)
+    {
 
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                arr[rows][columns] = (rand() % 10) + 1;
+            }
+        }
+    }
 }
 
 bool checkRepeat(int array[][COLUMNS])
@@ -34,13 +45,25 @@ int main()
     int disp_array[ROWS][COLUMNS];
 
     string email;
+
     cout << "Enter your email: ";
     cin >> email;
     while(IsWrongFormat(email))
     {
-
+        break;
     }
 
+    int userRow;
+    int userCol;
+    cout << "Enter rows and columns of the matrix: ";
+    scanf("%d %d", &userRow, &userCol);
+
+    while(userRow > ROWS || userCol > COLUMNS || userRow <= 1 || userCol <= 1)
+    {
+        cout << "The number must be less than 11 and greater than 1" << endl;
+        cout << "Enter rows and columns of the matrix: ";
+        scanf("%d %d", &userRow, &userCol);
+    }
 
     return 0;
 }
