@@ -18,18 +18,27 @@ void intialize(int arr[][COLUMNS], int rows, int columns, int num = -1)
     srand((time(NULL)));
     if(num != -1)
     {
-
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < columns; j++)
             {
-                arr[rows][columns] = (rand() % 10) + 1;
+                arr[i][j] = (rand() % 10) + 1;
+            }
+        }
+    }
+    else
+    {
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                arr[i][j] = num;
             }
         }
     }
 }
 
-bool checkRepeat(int array[][COLUMNS])
+bool checkRepeat(int arr[][COLUMNS])
 {
 
 }
@@ -64,6 +73,9 @@ int main()
         cout << "Enter rows and columns of the matrix: ";
         scanf("%d %d", &userRow, &userCol);
     }
+    intialize(num_array,userRow,userCol,1);
+    intialize(disp_array,userRow,userCol);
+
 
     return 0;
 }
