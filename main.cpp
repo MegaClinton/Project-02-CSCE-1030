@@ -38,12 +38,12 @@ void intialize(int arr[][COLUMNS], int rows, int columns, int num = -1)
     }
 }
 
-bool checkRepeat(int arr[][COLUMNS])
+bool checkRepeat(const int arr[][COLUMNS])
 {
 
 }
 
-void display()
+void display(int arr[][COLUMNS])
 {
 
 }
@@ -75,6 +75,11 @@ int main()
     }
     intialize(num_array,userRow,userCol,1);
     intialize(disp_array,userRow,userCol);
+
+    display(disp_array);
+
+    int points = 10;
+
 
 
     return 0;
