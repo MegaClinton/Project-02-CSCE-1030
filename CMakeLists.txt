@@ -7,4 +7,5 @@ include_directories(.)
 
 add_executable(Project_02_CSCE_1030
         main.cpp
-        main.h)
+        main.h
+        )
