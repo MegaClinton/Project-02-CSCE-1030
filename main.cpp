@@ -38,7 +38,7 @@ void intialize(int arr[][COLUMNS], int rows, int columns, int num = -1)
     }
 }
 
-bool checkRepeat(const int arr[][COLUMNS])
+bool checkRepeat(const int arr[][COLUMNS], int i, int j)
 {
 
 }
