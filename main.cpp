@@ -48,6 +48,16 @@ void display(const int arr[][COLUMNS])
 
 }
 
+void checkSize(int& userRow, int& userCol)
+{
+       while(userRow > ROWS || userCol > COLUMNS || userRow <= 1 || userCol <= 1)
+    {
+        cout << "The number must be less than 11 and greater than 1" << endl;
+        cout << "Enter rows and columns of the matrix: ";
+        scanf("%d %d", &userRow, &userCol);
+    }
+}
+
 int main()
 {
     int num_array[ROWS][COLUMNS];
@@ -66,13 +76,9 @@ int main()
     int userCol;
     cout << "Enter rows and columns of the matrix: ";
     scanf("%d %d", &userRow, &userCol);
+   
+    checkSize(userRow, userCol);
 
-    while(userRow > ROWS || userCol > COLUMNS || userRow <= 1 || userCol <= 1)
-    {
-        cout << "The number must be less than 11 and greater than 1" << endl;
-        cout << "Enter rows and columns of the matrix: ";
-        scanf("%d %d", &userRow, &userCol);
-    }
     intialize(num_array,userRow,userCol,1);
     intialize(disp_array,userRow,userCol);
 
