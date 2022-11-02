@@ -43,7 +43,7 @@ bool checkRepeat(const int arr[][COLUMNS], int i, int j)
 
 }
 
-void display(int arr[][COLUMNS])
+void display(const int arr[][COLUMNS])
 {
 
 }
