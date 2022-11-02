@@ -22,7 +22,7 @@ void intialize(int arr[][COLUMNS], int rows, int columns, int num = -1)
         {
             for (int j = 0; j < columns; j++)
             {
-                arr[i][j] = (rand() % 10) + 1;
+                arr[i][j] = (rand() % 20) + 1;
             }
         }
     }
