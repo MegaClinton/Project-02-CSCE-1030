@@ -1,10 +1,10 @@
 #include "main.h"
 
-void display(int arr[][COLUMNS], int userRow, int userCol)
+void display(int arr[][COLUMNS])
 {
-    for(int i=0;i<userRow;++i)
+    for(int i=0;i<ROWS;++i)
     {
-        for( int j=0;j<userCol;++j)
+        for( int j=0;j<COLUMNS;++j)
         {
             cout<<arr[i][j]<<"\t";
         }
