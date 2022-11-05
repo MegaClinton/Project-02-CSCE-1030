@@ -1,6 +1,6 @@
 #include "main.h"
 
-void display(int disp_array, int userRow, int userCol)
+void display(int arr[][COLUMNS], int userRow, int userCol)
 {
     for(int i=0;i<userRow;++i)
     {
