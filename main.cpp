@@ -89,7 +89,7 @@ int main()
     intialize(num_array,userRow,userCol,1);
     intialize(disp_array,userRow,userCol);
 
-    display(disp_array);
+    display(disp_array, userRow, userCol);
 
     int points = 10;
 
