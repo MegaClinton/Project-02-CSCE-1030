@@ -65,11 +65,21 @@ void checkSize(int& userRow, int& userCol)
         scanf("%d %d", &userRow, &userCol);
     }
 }
+void checkGuess(int& guessX, int& guessY, int userRow, int userCol)
+{
+    while(guessX >= userRow || guessY >= userCol || guessX < 0 || guessY < 0)
+    {
+        cout << "Co-ordinates are out of range." << endl;
+        cout << "Select co-ordinates to match: ";
+        scanf("%d %d", &guessX, &guessY);
+    }
+}
 
 int main()
 {
     int num_array[ROWS][COLUMNS];
     int disp_array[ROWS][COLUMNS];
+    int repeat_array[ROWS][COLUMNS];
 
     string email;
 
@@ -92,6 +102,7 @@ int main()
 
     initialize(num_array, userRow, userCol, 1);
     initialize(disp_array, userRow, userCol);
+    initialize(repeat_array, userRow, userCol);
 
     display(disp_array, userRow, userCol);
 
@@ -105,13 +116,15 @@ int main()
         disp_array[i][j] = num_array[i][j];
         int revealedNum = disp_array[i][j];
         display(disp_array, userCol, userCol);
+        repeat_array[i][j] = 1;
 
         cout << "Select co-ordinates to match: ";
         int guessX, guessY;
         scanf("%d %d", &guessX, &guessY);
-        while(guessX >= userRow || guessY >= userCol || guessX < 0 || guessY < 0)
+        checkGuess(guessX, guessY, userRow, userCol);
+        while(checkRepeat(repeat_array,guessX, guessY))
         {
-            cout << "Co-ordinates are out of range." << endl;
+            cout << "You have already entered these co-ordinates. Please enter again." << endl;
             cout << "Select co-ordinates to match: ";
             scanf("%d %d", &guessX, &guessY);
         }
