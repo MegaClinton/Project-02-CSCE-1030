@@ -11,9 +11,10 @@ const int COLUMNS = 10;
 bool IsWrongFormat(string email)
 {
 
+    return false;
 }
 
-void intialize(int arr[][COLUMNS], int rows, int columns, int num = -1)
+void initialize(int arr[][COLUMNS], int rows, int columns, int num = -1)
 {
     srand((time(NULL)));
     if(num != -1)
@@ -89,8 +90,8 @@ int main()
    
     checkSize(userRow, userCol);
 
-    intialize(num_array,userRow,userCol,1);
-    intialize(disp_array,userRow,userCol);
+    initialize(num_array, userRow, userCol, 1);
+    initialize(disp_array, userRow, userCol);
 
     display(disp_array, userRow, userCol);
 
@@ -132,6 +133,7 @@ int main()
         {
             cout << "Make another guess? Y/N: ";
             cin >> retry;
+            retry = toupper(retry);
         }
         else
         {
@@ -139,13 +141,13 @@ int main()
             cout << "Game over." << endl;
             exit(0);
         }
-        if(retry)
+        if(retry == 'Y')
         {
             continue;
         }
         else
         {
-            cout << "You have " << points << " remaining." << endl;
+            cout << "You have " << points << " points remaining." << endl;
             cout << "Your results will be emailed to you at " << email << "." << endl;
             cout << "Goodbye!!!" << endl;
             exit(0);
