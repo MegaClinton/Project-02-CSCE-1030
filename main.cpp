@@ -76,6 +76,9 @@ int main()
     cin >> email;
     while(IsWrongFormat(email))
     {
+        cout << "Your email is not in correct format. Please enter again." << endl;
+        cout << "Enter your email: ";
+        cin >> email;
         break;
     }
 
@@ -93,7 +96,60 @@ int main()
 
     int points = 10;
 
+    do
+    {
+        cout << "Enter co-ordinates to reveal: ";
+        int i, j;
+        scanf("%d %d", &i, &j);
+        disp_array[i][j] = num_array[i][j];
+        int revealedNum = disp_array[i][j];
+        display(disp_array, userCol, userCol);
 
-
-    return 0;
+        cout << "Select co-ordinates to match: ";
+        int guessX, guessY;
+        scanf("%d %d", &guessX, &guessY);
+        while(guessX >= userRow || guessY >= userCol || guessX < 0 || guessY < 0)
+        {
+            cout << "Co-ordinates are out of range." << endl;
+            cout << "Select co-ordinates to match: ";
+            scanf("%d %d", &guessX, &guessY);
+        }
+        if (num_array[guessX][guessY] == revealedNum)
+        {
+            cout << "You found a match." << endl;
+            points+= 2;
+            disp_array[guessX][guessY] = num_array[guessX][guessY];
+            display(disp_array,userRow, userCol);
+        }
+        else
+        {
+            cout << "It does not match" << endl;
+            points--;
+        }
+        cout << "Points balance: " << points << endl;
+        char retry;
+        if (points != 0)
+        {
+            cout << "Make another guess? Y/N: ";
+            cin >> retry;
+        }
+        else
+        {
+            cout << "You have run out of points." << endl;
+            cout << "Game over." << endl;
+            exit(0);
+        }
+        if(retry)
+        {
+            continue;
+        }
+        else
+        {
+            cout << "You have " << points << " remaining." << endl;
+            cout << "Your results will be emailed to you at " << email << "." << endl;
+            cout << "Goodbye!!!" << endl;
+            exit(0);
+        }
+    }
+    while(true);
 }
