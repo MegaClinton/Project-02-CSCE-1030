@@ -41,7 +41,7 @@ void initialize(int arr[][COLUMNS], int rows, int columns, int num = -1)
 
 bool checkRepeat(const int arr[][COLUMNS], int i, int j)
 {
-
+    return false;
 }
 
 void display(const int arr[][COLUMNS], int userRow, int userCol)
@@ -65,12 +65,19 @@ void checkSize(int& userRow, int& userCol)
         scanf("%d %d", &userRow, &userCol);
     }
 }
-void checkGuess(int& guessX, int& guessY, int userRow, int userCol)
+void checkGuess(int& guessX, int& guessY, int userRow, int userCol, bool match = true)
 {
     while(guessX >= userRow || guessY >= userCol || guessX < 0 || guessY < 0)
     {
         cout << "Co-ordinates are out of range." << endl;
-        cout << "Select co-ordinates to match: ";
+        if(match)
+        {
+            cout << "Select co-ordinates to match: ";
+        }
+        else
+        {
+            cout << "Enter co-ordinates to reveal: ";
+        }
         scanf("%d %d", &guessX, &guessY);
     }
 }
@@ -113,6 +120,7 @@ int main()
         cout << "Enter co-ordinates to reveal: ";
         int i, j;
         scanf("%d %d", &i, &j);
+        checkGuess(i, j, userRow, userCol, false);
         disp_array[i][j] = num_array[i][j];
         int revealedNum = disp_array[i][j];
         display(disp_array, userCol, userCol);
